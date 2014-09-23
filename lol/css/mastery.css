@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+.mastery_sprite {
+	background: url(https://sites.google.com/a/moa.cse.tw/lol-info/mastery/mastery_sprite.jpg) no-repeat top left;
+	width: 50px;
+	height: 50px;
+}
+
+.mastery-4111{ background-position: 0px 0px; }
+.mastery-4112{ background-position: -50px 0px; }
+.mastery-4113{ background-position: -100px 0px; }
+.mastery-4114{ background-position: -150px 0px; }
+.mastery-4121{ background-position: -200px 0px; }
+.mastery-4122{ background-position: -250px 0px; }
+.mastery-4123{ background-position: -300px 0px; }
+.mastery-4124{ background-position: -350px 0px; }
+.mastery-4131{ background-position: -400px 0px; }
+.mastery-4132{ background-position: -450px 0px; }
+.mastery-4133{ background-position: 0px -50px; }
+.mastery-4134{ background-position: -50px -50px; }
+.mastery-4141{ background-position: -100px -50px; }
+.mastery-4142{ background-position: -150px -50px; }
+.mastery-4143{ background-position: -200px -50px; }
+.mastery-4144{ background-position: -250px -50px; }
+.mastery-4151{ background-position: -300px -50px; }
+.mastery-4152{ background-position: -350px -50px; }
+.mastery-4154{ background-position: -400px -50px; }
+.mastery-4162{ background-position: -450px -50px; }
+.mastery-4211{ background-position: 0px -100px; }
+.mastery-4212{ background-position: -50px -100px; }
+.mastery-4213{ background-position: -100px -100px; }
+.mastery-4214{ background-position: -150px -100px; }
+.mastery-4221{ background-position: -200px -100px; }
+.mastery-4222{ background-position: -250px -100px; }
+.mastery-4224{ background-position: -300px -100px; }
+.mastery-4231{ background-position: -350px -100px; }
+.mastery-4232{ background-position: -400px -100px; }
+.mastery-4233{ background-position: -450px -100px; }
+.mastery-4234{ background-position: 0px -150px; }
+.mastery-4241{ background-position: -50px -150px; }
+.mastery-4242{ background-position: -100px -150px; }
+.mastery-4243{ background-position: -150px -150px; }
+.mastery-4244{ background-position: -200px -150px; }
+.mastery-4251{ background-position: -250px -150px; }
+.mastery-4252{ background-position: -300px -150px; }
+.mastery-4253{ background-position: -350px -150px; }
+.mastery-4262{ background-position: -400px -150px; }
+.mastery-4311{ background-position: -450px -150px; }
+.mastery-4312{ background-position: 0px -200px; }
+.mastery-4313{ background-position: -50px -200px; }
+.mastery-4314{ background-position: -100px -200px; }
+.mastery-4322{ background-position: -150px -200px; }
+.mastery-4323{ background-position: -200px -200px; }
+.mastery-4324{ background-position: -250px -200px; }
+.mastery-4331{ background-position: -300px -200px; }
+.mastery-4332{ background-position: -350px -200px; }
+.mastery-4333{ background-position: -400px -200px; }
+.mastery-4334{ background-position: -450px -200px; }
+.mastery-4341{ background-position: 0px -250px; }
+.mastery-4342{ background-position: -50px -250px; }
+.mastery-4343{ background-position: -100px -250px; }
+.mastery-4344{ background-position: -150px -250px; }
+.mastery-4352{ background-position: -200px -250px; }
+.mastery-4353{ background-position: -250px -250px; }
+.mastery-4362{ background-position: -300px -250px; }
+.mastery-0000{ background-position: -350px -250px; opacity:0; }

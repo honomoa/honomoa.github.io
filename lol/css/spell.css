@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+.spell_sprite, .spell_sprite.spell-b {
+    background: url(https://sites.google.com/a/moa.cse.tw/lol-info/spell/spell_sprite.png) no-repeat top left;
+}
+.spell_sprite.spell-s {
+    background: url(https://sites.google.com/a/moa.cse.tw/lol-info/spell/spell_sprite_20.png) no-repeat top left;
+}
+
+.spell-b.spell-Spell_SummonerBoost, .spell-Spell_SummonerBoost{ background-position: 0 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerClairvoyance, .spell-Spell_SummonerClairvoyance{ background-position: -64px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerDot, .spell-Spell_SummonerDot{ background-position: -128px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerExhaust, .spell-Spell_SummonerExhaust{ background-position: -192px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerFlash, .spell-Spell_SummonerFlash{ background-position: -256px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerFortify, .spell-Spell_SummonerFortify{ background-position: -320px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerHaste, .spell-Spell_SummonerHaste{ background-position: -384px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerHeal, .spell-Spell_SummonerHeal{ background-position: -448px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerMana, .spell-Spell_SummonerMana{ background-position: -512px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerObserver, .spell-Spell_SummonerObserver{ background-position: -576px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerPromote, .spell-Spell_SummonerPromote{ background-position: -640px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerRally, .spell-Spell_SummonerRally{ background-position: -704px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerRevive, .spell-Spell_SummonerRevive{ background-position: -768px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerSmite, .spell-Spell_SummonerSmite{ background-position: -832px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerStifle, .spell-Spell_SummonerStifle{ background-position: -896px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerTeleport, .spell-Spell_SummonerTeleport{ background-position: -960px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerOdinGarrison, .spell-Spell_SummonerOdinGarrison{ background-position: -320px 0; width: 64px; height: 64px; } 
+.spell-b.spell-Spell_SummonerBarrier, .spell-Spell_SummonerBarrier{ background-position: -1024px 0; width: 64px; height: 64px; } 
+
+.spell-s.spell-Spell_SummonerBoost{ background-position: 0 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerClairvoyance{ background-position: -20px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerDot{ background-position: -40px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerExhaust{ background-position: -60px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerFlash{ background-position: -80px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerFortify{ background-position: -100px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerHaste{ background-position: -120px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerHeal{ background-position: -140px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerMana{ background-position: -160px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerObserver{ background-position: -180px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerPromote{ background-position: -200px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerRally{ background-position: -220px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerRevive{ background-position: -240px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerSmite{ background-position: -260px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerStifle{ background-position: -280px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerTeleport{ background-position: -300px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerOdinGarrison{ background-position: -100px 0; width: 20px; height: 20px; } 
+.spell-s.spell-Spell_SummonerBarrier{ background-position: -320px 0; width: 20px; height: 20px; } 
