@@ -1,0 +1,325 @@
+
+#trendcounter{
+	max-width:162px;
+}
+#ads{
+	max-width:730px;
+}
+#shareme{
+	width:200px;
+	padding-left: 20px;
+}
+
+.body {
+	margin-bottom:160px;
+}
+.footer div{
+	background-color:#333333;
+}
+
+/* inject bootstrap */
+.container,.container-fluid{
+	max-width:1100px;
+}
+.nav-tabs>li.active>a {
+	color: #fff;
+	background-color: #428bca;
+}
+.nav-tabs>li.active>a:hover {
+	color: #eee;
+	background-color: #327bba;
+}
+.popover {
+	border: 3px solid gold;
+	padding: 0;
+	border-radius: 5px;
+}
+
+.popover-content {
+	border-color: gold;
+	padding: 0;
+	border-radius: 0 0 5px 5px;
+}
+.popover-title,.popover-content {
+	max-width: 350px;
+	font-weight: 800;
+	font-size: 12pt;
+	background: #222;
+	color: #87CEFA;
+	opacity: .90;
+	padding: 3px;
+	border: 0px;
+}
+/* self defined bootstrap-like marco */
+.inline {
+	display:inline;
+}
+.inline-block {
+	display:inline-block;
+}
+.strong {
+	font-weight:bold;
+}
+.width24px {
+	width:24px;
+}
+.width48px {
+	width:48px;
+}
+.text-del {
+	text-decoration:line-through;
+}
+.cursor-pointer {
+	cursor:pointer;
+}
+.nopadding {
+/*	padding:-15px;*/
+	padding: 0;
+}
+.nopadding-right {
+	padding-right: 0;
+}
+
+
+/* self defined marco */
+.teamblue {
+	color:#4444ee;
+}
+.teampurple {
+	color:#550055;
+}
+.teamblue.invert {
+	color:#ffffff;
+	background-color:#4444ee;
+}
+.teampurple.invert {
+	color:#ffffff;
+	background-color:#550055;
+}
+.game-win{
+	color:#ffffff;
+	background-color:#FA8072;
+}
+.game-lose{
+	color:#ffffff;
+	background-color:#1E90FF;
+}
+.game-leave{
+	color:#ffffff;
+	background-color:#FFCC66;
+}
+.game-kill{
+	color:#ffffff;
+	background-color:#1E90FF;
+}
+.game-death{
+	color:#ffffff;
+	background-color:#1E90FF;
+}
+.game-assist{
+	color:#ffffff;
+	background-color:#1E90FF;
+}
+/* home */
+#fb-field {
+	max-width: 750px;
+}
+
+/* main */
+#announce {
+	text-align:center;
+}
+#announce a {
+	color: #CCFFCC;
+	font-weight: 800;
+}
+
+/* kudos */
+.kudos {
+	width:24px;
+	height:24px;
+	border:0px;
+}
+.kudos.kudos-friendly {
+}
+.kudos.kudos-helpful {
+}
+.kudos.kudos-teamwork {
+}
+.kudos.kudos-honorable {
+}
+
+/* rune talent */
+.rune-page-left {
+	min-width:100px;
+}
+.rune.rune-quintessence {
+	color:#9932CC;
+}
+.rune.rune-mark {
+	color:#DC143C;
+}
+.rune.rune-seal {
+	color:#FF8C00;
+}
+.rune.rune-glyph {
+	color:#4169E1;
+}
+.rune.rune-used,.talent.talent-used {
+	border:3px solid red;
+	border-radius: 6px;
+}
+.talent.talent-attack {
+	color:#DC143C;
+}
+.talent.talent-defense {
+	color:#4169E1;
+}
+.talent.talent-utility {
+	color:#2E8B57;
+}
+.mastery-board {
+	background-image:url(https://sites.google.com/a/moa.cse.tw/lol-info/mastery/mastery.jpg);
+	width:827px;
+	height:479px;
+}
+.mastery-block {
+	display: inline-block;
+	margin:13px 5px 3px 3px;
+}
+.mastery-rows {
+	width:260px;
+	height:70px;
+}
+.mastery-element {
+	display: inline-block;
+	position:relative;
+	top:0px;
+	left:23px;
+	margin:3px;
+	border: 2px solid #666;
+	border-radius: 6px;
+	opacity:0.3;
+	cursor: pointer;
+}
+.mastery-rankbox {
+	display: inline-block;
+	width:30px;
+	height:20px;
+/*	border: 2px solid #666;*/
+	position:relative;
+	top:38px;
+	left:18px;
+	background-color:black;
+	color:gold;
+	text-align:center;
+	font-size:12px;
+}
+.mastery-fullrank,.mastery-fullrank .mastery-rankbox {
+	border: 2px solid gold;
+	border-radius: 6px;
+	opacity:1;
+	color: gold;
+}
+.mastery-halfrank,.mastery-halfrank .mastery-rankbox {
+	border: 2px solid lime;
+	border-radius: 6px;
+	opacity:1;
+	color: lime;
+}
+.mastery-norank,.mastery-norank .mastery-rankbox {
+	border: 2px solid gray;
+	border-radius: 6px;
+	/*opacity:0.3;*/
+	color: gray;
+}
+.popover-title .mastery-title {
+	max-width: 300px;
+	font-weight: 800;
+	font-size: 12pt;
+	background: #222;
+	color: red;
+	opacity: .90;
+	padding: 3px;
+	border: 0px;
+}
+.popover-content .mastery-content {
+	max-width: 300px;
+	font-weight: 800;
+	font-size: 12pt;
+	background: #222;
+	color: #fff;
+	opacity: .90;
+	padding: 3px;
+	border: 0px;
+}
+.mastery-category {
+	width: 110px;
+	color: #fff;
+	font-size: 22px;
+	margin: 0 auto 0 auto;
+}
+.mastery-name {
+}
+/* recentgames */
+.table-condensed.table-nopadding th,.table-condensed.table-nopadding td,.table-nopadding{
+	padding: 0;
+}
+th.skin_slider {
+	margin: 0;
+	padding: 0;
+}
+.skin_slider {
+	margin: 0;
+	padding: 0;
+	width: 50px;
+}
+.recentgames-page {
+	max-width: 900px;
+}
+stats {
+	color: #fff;
+}
+unique, passive, active, consumble, aura {
+	color: #f80;
+}
+/* leaguesolo */
+.league-current {
+	border:3px solid red;
+}
+
+.league-inactive {
+	color: #aaaaaa;
+}
+
+/* statistic ranksolo */
+.bg-CHALLENGER {
+	background-color: gold;
+}
+.bg-MASTER {
+	background-color: #AFEEEE;
+}
+.bg-DIAMOND {
+	background-color: #92c7e8;
+}
+.bg-PLATINUM {
+	background-color: #b9ead9;
+}
+.bg-GOLD {
+	background-color: #FFFACD;
+}
+.bg-SILVER {
+	background-color: #F5F5F5;
+}
+.bg-BRONZE {
+	background-color: #FFDAB9;
+}
+.bg-black {
+	background-color: black;
+}
+.text-black {
+	color: black;
+}
+.text-white {
+	color: white;
+}
