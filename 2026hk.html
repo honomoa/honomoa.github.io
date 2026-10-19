@@ -1,373 +1,528 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2610 港澳五日小旅行 互動行程表</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans TC', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.90); backdrop-filter: blur(12px); }
-        .transition-all { transition: all 0.3s ease; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>港澳五日小旅行 🇭🇰🇲🇴 行程表</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Glassmorphic Base Background */
+    body {
+      background: linear-gradient(135deg, #e0f2fe 0%, #fef3c7 50%, #f3e8ff 100%);
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Active Tab Animation */
+    .tab-btn.active {
+      background-color: #3b82f6;
+      color: white;
+      box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+    }
+
+    /* Timeline Connector */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 36px;
+      bottom: -16px;
+      width: 2px;
+      background: #e2e8f0;
+    }
+    .timeline-item:last-child::before {
+      display: none;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-pink-50 min-h-screen text-slate-800 p-4 md:p-8">
+<body class="text-slate-800 pb-12">
 
-    <div class="max-w-4xl mx-auto space-y-6">
-        
-        <!-- 頂部標題與基本資訊 -->
-        <header class="glass rounded-3xl p-6 md:p-8 shadow-xl border border-white/40 text-center relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-50"></div>
-            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-50"></div>
-            
-            <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent mb-3">
-                📅 2610 港澳五日小旅行
-            </h1>
-            
-            <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base font-medium text-slate-600 mb-6">
-                <span class="bg-white/90 px-4 py-1.5 rounded-full shadow-sm">🏨 <a href="https://maps.google.com/?q=The+Harbourview+Hong+Kong" target="_blank" class="text-blue-600 hover:underline">灣景國際飯店</a></span>
-                <span class="bg-white/90 px-4 py-1.5 rounded-full shadow-sm">✈️ 去程：10/22 08:00 ➔ 09:55 (JX233)</span>
-                <span class="bg-white/90 px-4 py-1.5 rounded-full shadow-sm">✈️ 回程：10/26 11:15 ➔ 13:00 (JX234)</span>
+  <!-- Header Banner -->
+  <header class="glass-nav sticky top-0 z-50 px-4 py-4 mb-6 shadow-sm">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">10/22 ～ 10/26</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full">5 Days</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-1 flex items-center gap-2">
+          🇭🇰🇲🇴 港澳五日小旅行
+        </h1>
+      </div>
+      <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-600">
+        <div class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-1.5">
+          <i class="fa-solid fa-plane-departure text-blue-500"></i>
+          <span>去程：10/22 08:00 ➔ 09:55 (JX233)</span>
+        </div>
+        <div class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-1.5">
+          <i class="fa-solid fa-plane-arrival text-emerald-500"></i>
+          <span>回程：10/26 11:15 ➔ 13:00 (JX234)</span>
+        </div>
+        <div class="bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-1.5 w-full md:w-auto">
+          <i class="fa-solid fa-hotel text-amber-500"></i>
+          <span>住宿：灣景國際飯店</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4">
+
+    <!-- Day Selector Buttons -->
+    <nav class="flex space-x-2 overflow-x-auto pb-3 mb-6 scrollbar-none" aria-label="Tabs">
+      <button onclick="switchTab(1)" id="tab-1" class="tab-btn active shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white/60 text-slate-600 hover:bg-white">
+        <span>DAY 1</span>
+        <span class="text-xs opacity-75">10/22 (四)</span>
+      </button>
+      <button onclick="switchTab(2)" id="tab-2" class="tab-btn shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white/60 text-slate-600 hover:bg-white">
+        <span>DAY 2</span>
+        <span class="text-xs opacity-75">10/23 (五)</span>
+      </button>
+      <button onclick="switchTab(3)" id="tab-3" class="tab-btn shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white/60 text-slate-600 hover:bg-white">
+        <span>DAY 3</span>
+        <span class="text-xs opacity-75">10/24 (六)</span>
+      </button>
+      <button onclick="switchTab(4)" id="tab-4" class="tab-btn shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white/60 text-slate-600 hover:bg-white">
+        <span>DAY 4</span>
+        <span class="text-xs opacity-75">10/25 (日)</span>
+      </button>
+      <button onclick="switchTab(5)" id="tab-5" class="tab-btn shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-2 bg-white/60 text-slate-600 hover:bg-white">
+        <span>DAY 5</span>
+        <span class="text-xs opacity-75">10/26 (一)</span>
+      </button>
+    </nav>
+
+    <!-- Content Sections -->
+
+    <!-- DAY 1 -->
+    <div id="day-1-content" class="tab-content space-y-6">
+      <div class="glass-card rounded-2xl p-5 md:p-6">
+        <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <span>DAY 1 🇭🇰 抵達香港・昂坪大澳與山頂夜景</span>
+        </h2>
+        <p class="text-sm text-slate-500 mb-6">10/22 (四) 華麗開場，一路從纜車海景玩到山頂夜景</p>
+
+        <!-- Timeline -->
+        <div class="space-y-6">
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-bus"></i>
             </div>
-
-            <!-- 全局進度條 -->
-            <div class="bg-white/70 p-4 rounded-2xl shadow-inner max-w-xl mx-auto">
-                <div class="flex justify-between text-xs md:text-sm font-semibold text-slate-600 mb-1">
-                    <span>行程完成進度</span>
-                    <span id="progress-text">0%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-                    <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-pink-500 h-3 rounded-full transition-all" style="width: 0%"></div>
-                </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-blue-600">10:00 - 11:00</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">搭乘公車前往東涌</h3>
+              <p class="text-xs text-slate-500 mt-1">可搭乘 S1、S56、S64、S64X 公車</p>
             </div>
-        </header>
+          </div>
 
-        <!-- 分天導覽按鈕 (Tabs) -->
-        <nav class="flex flex-wrap justify-center gap-2 md:gap-3">
-            <button onclick="switchTab(1)" id="tab-1" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-blue-600 text-white">Day 1 (10/22)</button>
-            <button onclick="switchTab(2)" id="tab-2" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-white/80 text-slate-700 hover:bg-white">Day 2 (10/23)</button>
-            <button onclick="switchTab(3)" id="tab-3" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-white/80 text-slate-700 hover:bg-white">Day 3 (10/24)</button>
-            <button onclick="switchTab(4)" id="tab-4" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-white/80 text-slate-700 hover:bg-white">Day 4 (10/25)</button>
-            <button onclick="switchTab(5)" id="tab-5" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-white/80 text-slate-700 hover:bg-white">Day 5 (10/26)</button>
-            <button onclick="toggleBudget()" id="tab-budget" class="px-5 py-2.5 rounded-2xl font-bold text-sm md:text-base shadow-md transition-all bg-amber-500 text-white">💰 預算與花費</button>
-        </nav>
-
-        <!-- 行程內容區塊 (SPA Views) -->
-        <main>
-            <!-- DAY 1 -->
-            <div id="view-1" class="day-view space-y-4">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-blue-700 mb-4 pb-2 border-b border-slate-200">💖 10/22 (四) ｜ 抵達香港・昂坪大澳與山頂夜景</h2>
-                    <div class="space-y-3" id="checklist-1">
-                        <!-- 項目 1 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">08:00 - 09:55</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">航班</span></div>
-                                <p class="text-slate-600 text-sm">桃園第一航廈搭乘 <a href="https://maps.google.com/?q=Taoyuan+International+Airport" target="_blank" class="text-blue-600 hover:underline">JX233</a> 飛往香港</p>
-                            </div>
-                        </label>
-                        <!-- 項目 2 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">10:00 - 11:00</span><span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">交通與寄放</span></div>
-                                <p class="text-slate-600 text-sm">機場搭乘城巴 S1、S56、S64 前往東涌，至 <a href="https://maps.google.com/?q=Tung+Chung+Station+Lockers" target="_blank" class="text-blue-600 hover:underline">KJ Lockers</a> 寄放行李。</p>
-                            </div>
-                        </label>
-                        <!-- 項目 3 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">11:15 - 16:30</span><span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">景點</span></div>
-                                <p class="text-slate-600 text-sm">搭乘 <a href="https://maps.google.com/?q=Ngong+Ping+360" target="_blank" class="text-blue-600 hover:underline">昂坪 360 纜車</a>、逛 <a href="https://maps.google.com/?q=Ngong+Ping+Village" target="_blank" class="text-blue-600 hover:underline">昂坪市集</a>、參拜 <a href="https://maps.google.com/?q=Tian+Tan+Buddha" target="_blank" class="text-blue-600 hover:underline">天壇大佛</a>、訪 <a href="https://maps.google.com/?q=Tai+O" target="_blank" class="text-blue-600 hover:underline">大澳漁村</a> 與 <a href="https://maps.google.com/?q=Fu+Shan+Viewing+Point" target="_blank" class="text-blue-600 hover:underline">虎山觀景台</a>。</p>
-                            </div>
-                        </label>
-                        <!-- 項目 4 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">17:00</span><span class="text-xs bg-pink-100 text-pink-800 px-2 py-0.5 rounded">住宿</span></div>
-                                <p class="text-slate-600 text-sm">返回市區，入住 <a href="https://maps.google.com/?q=The+Harbourview+Hong+Kong" target="_blank" class="text-blue-600 hover:underline">灣景國際飯店</a>。</p>
-                            </div>
-                        </label>
-                        <!-- 項目 5 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">17:30</span><span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">美食</span></div>
-                                <p class="text-slate-600 text-sm">前往 <a href="https://maps.google.com/?q=Kam's+Roast+Goose+Wan+Chai" target="_blank" class="text-blue-600 hover:underline">甘牌燒鵝</a>（灣仔站 A2 出口步行 4 分鐘，先拿號碼牌）。</p>
-                            </div>
-                        </label>
-                        <!-- 項目 6 -->
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-blue-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">18:30</span><span class="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded">夜景</span></div>
-                                <p class="text-slate-600 text-sm">至 <a href="https://maps.google.com/?q=Peak+Tram+Garden+Road+Terminus" target="_blank" class="text-blue-600 hover:underline">花園道山頂纜車站</a> 搭乘 <a href="https://maps.google.com/?q=Peak+Tram" target="_blank" class="text-blue-600 hover:underline">山頂纜車</a>（坐右側）登 <a href="https://maps.google.com/?q=The+Peak+Tower" target="_blank" class="text-blue-600 hover:underline">凌霄閣</a>賞百萬夜景。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-suitcase"></i>
             </div>
-
-            <!-- DAY 2 -->
-            <div id="view-2" class="day-view space-y-4 hidden">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-pink-700 mb-4 pb-2 border-b border-slate-200">💖 10/23 (五) ｜ 澳門一日遊</h2>
-                    <div class="space-y-3" id="checklist-2">
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-pink-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">07:00</span><span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">早茶</span></div>
-                                <p class="text-slate-600 text-sm">品嚐上環老字號 <a href="https://maps.google.com/?q=Lin+Heung+Tea+House+Sheung+Wan" target="_blank" class="text-blue-600 hover:underline">蓮香樓</a> 早茶（營業 06:00-16:00、18:00-22:00）。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-pink-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">08:30</span><span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">交通</span></div>
-                                <p class="text-slate-600 text-sm">自上環 <a href="https://maps.google.com/?q=Shun+Tak+Centre" target="_blank" class="text-blue-600 hover:underline">信德中心</a> 搭乘 <a href="https://maps.google.com/?q=TurboJET" target="_blank" class="text-blue-600 hover:underline">噴射飛航</a> 前往澳門外港碼頭。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-pink-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">10:00 - 15:00</span><span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">景點</span></div>
-                                <p class="text-slate-600 text-sm">參訪 <a href="https://maps.google.com/?q=Ruins+of+St.+Paul's" target="_blank" class="text-blue-600 hover:underline">大三巴牌坊</a>、<a href="https://maps.google.com/?q=MGM+Cotai" target="_blank" class="text-blue-600 hover:underline">美獅美高梅</a>、<a href="https://maps.google.com/?q=Rua+do+Cunha" target="_blank" class="text-blue-600 hover:underline">官也街</a>、<a href="https://maps.google.com/?q=Wynn+Palace" target="_blank" class="text-blue-600 hover:underline">永利皇宮</a>。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-pink-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">16:30</span><span class="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded">表演</span></div>
-                                <p class="text-slate-600 text-sm">觀賞精彩震撼的《<a href="https://maps.google.com/?q=City+of+Dreams+Macau" target="_blank" class="text-blue-600 hover:underline">水舞間</a>》表演。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-pink-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">晚上</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">返港</span></div>
-                                <p class="text-slate-600 text-sm">從 <a href="https://maps.google.com/?q=Taipa+Ferry+Terminal" target="_blank" class="text-blue-600 hover:underline">氹仔客運碼頭</a> 搭船返回香港，回灣景國際飯店休息。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <h3 class="font-bold text-slate-800 text-base">行李寄放</h3>
+              <p class="text-xs text-slate-500 mt-1">寄放於 <a href="https://www.google.com/maps/search/?api=1&query=KJ+Lockers+Tung+Chung" target="_blank" class="text-blue-600 underline hover:text-blue-800"><i class="fa-solid fa-location-dot"></i> KJ Lockers</a></p>
             </div>
+          </div>
 
-            <!-- DAY 3 -->
-            <div id="view-3" class="day-view space-y-4 hidden">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-indigo-700 mb-4 pb-2 border-b border-slate-200">💖 10/24 (六) ｜ 港島文青漫遊與廟街夜市</h2>
-                    <div class="space-y-3" id="checklist-3">
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-indigo-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">白天</span><span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">文青散策</span></div>
-                                <p class="text-slate-600 text-sm">漫步 <a href="https://maps.google.com/?q=Central+Market" target="_blank" class="text-blue-600 hover:underline">中環街市</a>、搭乘 <a href="https://maps.google.com/?q=Mid-Levels+escalator" target="_blank" class="text-blue-600 hover:underline">中環半山手扶梯</a>、打卡 <a href="https://maps.google.com/?q=Graham+Street+Mural" target="_blank" class="text-blue-600 hover:underline">嘉咸街壁畫</a>、參觀 <a href="https://maps.google.com/?q=Tai+Kwun" target="_blank" class="text-blue-600 hover:underline">大館</a>。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-indigo-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">下午茶</span><span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">美食</span></div>
-                                <p class="text-slate-600 text-sm">前往 <a href="https://maps.google.com/?q=Lan+Fong+Yuen" target="_blank" class="text-blue-600 hover:underline">蘭芳園</a> 品嚐絲襪奶茶與西多士。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-indigo-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">晚上</span><span class="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded">夜市</span></div>
-                                <p class="text-slate-600 text-sm">搭地鐵至油麻地，逛 <a href="https://maps.google.com/?q=Temple+Street+Night+Market" target="_blank" class="text-blue-600 hover:underline">廟街夜市</a> 吃煲仔飯與避風塘炒蟹。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-mountain-city"></i>
             </div>
-
-            <!-- DAY 4 -->
-            <div id="view-4" class="day-view space-y-4 hidden">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-purple-700 mb-4 pb-2 border-b border-slate-200">💖 10/25 (日) ｜ 黃大仙求籤、親友聚會與星光大道</h2>
-                    <div class="space-y-3" id="checklist-4">
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-purple-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">上午</span><span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">祈福</span></div>
-                                <p class="text-slate-600 text-sm">搭地鐵至 <a href="https://maps.google.com/?q=Wong+Tai+Sin+Temple" target="_blank" class="text-blue-600 hover:underline">黃大仙祠</a> 參拜求籤。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-purple-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">12:30</span><span class="text-xs bg-pink-100 text-pink-800 px-2 py-0.5 rounded">聚會</span></div>
-                                <p class="text-slate-600 text-sm">前往 <a href="https://maps.google.com/?q=Tai+Wai+Station" target="_blank" class="text-blue-600 hover:underline">大圍站</a> 與表姐溫馨碰面聚會。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-purple-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">晚上</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">夜景</span></div>
-                                <p class="text-slate-600 text-sm">前往 <a href="https://maps.google.com/?q=Avenue+of+Stars" target="_blank" class="text-blue-600 hover:underline">尖沙咀星光大道</a> 欣賞維港夜景（20:00 幻彩詠香江）。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <h3 class="font-bold text-slate-800 text-base">景點走跳</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ngong+Ping+360" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-cable-car"></i> 昂坪 360 纜車</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ngong+Ping+Village" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-store"></i> 昂坪市集</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Tian+Tan+Buddha" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-gopuram"></i> 天壇大佛</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Tai+O+Fishing+Village" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-water"></i> 大澳漁村</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Fu+Shan+Viewing+Point" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-binoculars"></i> 虎山觀景台</a>
+              </div>
             </div>
+          </div>
 
-            <!-- DAY 5 -->
-            <div id="view-5" class="day-view space-y-4 hidden">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-emerald-700 mb-4 pb-2 border-b border-slate-200">💖 10/26 (一) ｜ 快樂返台</h2>
-                    <div class="space-y-3" id="checklist-5">
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-emerald-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">上午</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">退房返程</span></div>
-                                <p class="text-slate-600 text-sm">灣景國際飯店輕鬆退房，搭乘機場快線或巴士前往 <a href="https://maps.google.com/?q=Hong+Kong+International+Airport" target="_blank" class="text-blue-600 hover:underline">香港國際機場</a>。</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-white/90 cursor-pointer transition">
-                            <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 accent-emerald-600 rounded" onchange="updateProgress()">
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center"><span class="font-bold text-slate-800">11:15 - 13:00</span><span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">航班</span></div>
-                                <p class="text-slate-600 text-sm">搭乘 <a href="https://maps.google.com/?q=Hong+Kong+International+Airport" target="_blank" class="text-blue-600 hover:underline">JX234</a> 班機甜蜜返回台灣。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-hotel"></i>
             </div>
-
-            <!-- 預算小算盤與花費統計表 (預設隱藏，點擊按鈕切換) -->
-            <div id="view-budget" class="space-y-4 hidden">
-                <div class="glass rounded-2xl p-6 shadow-lg border border-white/50">
-                    <h2 class="text-xl font-bold text-amber-700 mb-4 pb-2 border-b border-slate-200">💰 預算與花費小算盤 (港幣/台幣估算)</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div class="bg-white/70 p-4 rounded-xl shadow-sm">
-                            <label class="block text-sm font-semibold text-slate-600 mb-1">設定總預算目標 (TWD)</label>
-                            <input type="number" id="budget-limit" value="35000" oninput="calculateBudget()" class="w-full p-2 border rounded-lg font-bold text-lg text-amber-600">
-                        </div>
-                        <div class="bg-white/70 p-4 rounded-xl shadow-sm flex flex-col justify-center">
-                            <span class="text-sm font-semibold text-slate-600">目前預估總花費</span>
-                            <span id="total-spent" class="text-2xl font-bold text-slate-800">NT$ 0</span>
-                            <span id="budget-status" class="text-xs font-bold text-emerald-600 mt-1">✓ 狀態：符合預算範圍內</span>
-                        </div>
-                    </div>
-
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-amber-100/60 text-slate-700 text-sm">
-                                    <th class="p-3 rounded-l-xl">類別</th>
-                                    <th class="p-3">細項說明</th>
-                                    <th class="p-3 rounded-r-xl">預估金額 (TWD)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm divide-y divide-slate-200">
-                                <tr>
-                                    <td class="p-3 font-semibold text-blue-600">✈️ 交通</td>
-                                    <td class="p-3">星宇航空來回機票 + 港澳船票 + 地鐵/巴士</td>
-                                    <td class="p-3"><input type="number" class="cost-input w-28 p-1 border rounded" value="16500" oninput="calculateBudget()"></td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-pink-600">🏨 住宿</td>
-                                    <td class="p-3">灣景國際飯店 4 晚住宿</td>
-                                    <td class="p-3"><input type="number" class="cost-input w-28 p-1 border rounded" value="10000" oninput="calculateBudget()"></td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-amber-600">🍜 餐食</td>
-                                    <td class="p-3">甘牌燒鵝、蓮香樓、蘭芳園、煲仔飯等</td>
-                                    <td class="p-3"><input type="number" class="cost-input w-28 p-1 border rounded" value="5000" oninput="calculateBudget()"></td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold text-purple-600">🎫 門票</td>
-                                    <td class="p-3">昂坪 360、山頂纜車、水舞間</td>
-                                    <td class="p-3"><input type="number" class="cost-input w-28 p-1 border rounded" value="3500" oninput="calculateBudget()"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-purple-600">傍晚</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">入住飯店</h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=The+Harbourview+Hong+Kong" target="_blank" class="inline-block mt-1 text-xs text-blue-600 underline font-medium"><i class="fa-solid fa-location-dot"></i> 灣景國際飯店 (The Harbourview)</a>
             </div>
-        </main>
+          </div>
 
-        <footer class="text-center mt-12 text-slate-500 text-sm">
-            <p>Have a wonderful trip to HK & Macau! ✨</p>
-        </footer>
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-rose-600">晚餐時光</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">甘牌燒鵝</h3>
+              <p class="text-xs text-slate-500 mt-1">灣仔站 A2 出口，步行約 4 分鐘（建議抵達後先領取號碼牌）</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Kam's+Roast+Goose+Wan+Chai" target="_blank" class="inline-block mt-2 text-xs bg-rose-50 text-rose-600 border border-rose-200 px-2.5 py-1 rounded-lg font-medium hover:bg-rose-100"><i class="fa-solid fa-map-pin"></i> 地圖導航</a>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-indigo-600">浪漫夜景</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">山頂纜車 & 凌霄閣</h3>
+              <p class="text-xs text-slate-500 mt-1">前往花園道山頂纜車站搭乘纜車（<strong>建議坐右側</strong>風景更佳），登上凌霄閣賞百萬夜景。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Peak+Tram+Central" target="_blank" class="inline-block mt-2 text-xs bg-indigo-50 text-indigo-600 border border-indigo-200 px-2.5 py-1 rounded-lg font-medium hover:bg-indigo-100"><i class="fa-solid fa-map-pin"></i> 纜車站導航</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Notice & Food -->
+        <div class="mt-8 space-y-3">
+          <details class="group bg-amber-50/80 rounded-xl border border-amber-200/60 p-4 transition">
+            <summary class="font-bold text-amber-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i> Day 1 貼心小提醒</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-amber-600"></i>
+            </summary>
+            <div class="text-xs text-amber-800 mt-3 leading-relaxed border-t border-amber-200/50 pt-2">
+              第一天行程較為豐富緊湊，出關後請抓緊時間。記得提前準備好網卡與八達通卡，搭乘纜車與公車會更加順暢喔！
+            </div>
+          </details>
+        </div>
+      </div>
     </div>
 
-    <!-- JavaScript 互動邏輯 -->
-    <script>
-        function switchTab(day) {
-            // 隱藏所有行程視圖與預算視圖
-            document.querySelectorAll('.day-view').forEach(el => el.classList.add('hidden'));
-            document.getElementById('view-budget').classList.add('hidden');
+    <!-- DAY 2 -->
+    <div id="day-2-content" class="tab-content space-y-6 hidden">
+      <div class="glass-card rounded-2xl p-5 md:p-6">
+        <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <span>DAY 2 🇲🇴 澳門一日遊</span>
+        </h2>
+        <p class="text-sm text-slate-500 mb-6">10/23 (五) 港葡風情交融，精彩震撼水舞間</p>
 
-            // 移除所有按鈕樣式
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-white/80', 'text-slate-700');
-            });
-            document.getElementById('tab-budget').classList.remove('bg-amber-600', 'text-white');
-            document.getElementById('tab-budget').classList.add('bg-amber-500', 'text-white');
+        <!-- Timeline -->
+        <div class="space-y-6">
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-rose-600">07:00</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">道地早茶：蓮香樓</h3>
+              <p class="text-xs text-slate-500 mt-1">營業時間：06:00-16:00、18:00-22:00</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Lin+Heung+Tea+House+Central" target="_blank" class="inline-block mt-2 text-xs bg-rose-50 text-rose-600 border border-rose-200 px-2.5 py-1 rounded-lg font-medium hover:bg-rose-100"><i class="fa-solid fa-map-pin"></i> 地圖導航</a>
+            </div>
+          </div>
 
-            // 顯示當前點擊的視圖與按鈕樣式
-            document.getElementById('view-' + day).classList.remove('hidden');
-            const activeBtn = document.getElementById('tab-' + day);
-            activeBtn.classList.remove('bg-white/80', 'text-slate-700');
-            activeBtn.classList.add('bg-blue-600', 'text-white');
-        }
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-ship"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-blue-600">08:30</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">搭船前往澳門</h3>
+              <p class="text-xs text-slate-500 mt-1">從港鐵上環站至港澳碼頭，搭乘噴射飛航前往澳門外港碼頭。</p>
+            </div>
+          </div>
 
-        function toggleBudget() {
-            document.querySelectorAll('.day-view').forEach(el => el.classList.add('hidden'));
-            document.getElementById('view-budget').classList.remove('hidden');
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-camera"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <h3 class="font-bold text-slate-800 text-base">景點巡禮</h3>
+              <p class="text-xs text-slate-500 mt-1 mb-2">善用各大飯店免費接駁車（發財車）</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ruins+of+St.+Paul's+Macau" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-archway"></i> 大三巴牌坊</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=MGM+Cotai" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-hotel"></i> 美獅美高梅</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+do+Cunha+Macau" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-utensils"></i> 官也街</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Wynn+Palace+Macau" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100 transition"><i class="fa-solid fa-gem"></i> 永利皇宮</a>
+              </div>
+            </div>
+          </div>
 
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-white/80', 'text-slate-700');
-            });
-            const budgetBtn = document.getElementById('tab-budget');
-            budgetBtn.classList.remove('bg-amber-500');
-            budgetBtn.classList.add('bg-amber-600', 'text-white');
-            calculateBudget();
-        }
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-purple-600">16:30</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">震撼表演：《水舞間》</h3>
+              <p class="text-xs text-slate-500 mt-1">地點：新濠天地。請提早入場憑票對號入座。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=City+of+Dreams+Macau" target="_blank" class="inline-block mt-2 text-xs bg-purple-50 text-purple-600 border border-purple-200 px-2.5 py-1 rounded-lg font-medium hover:bg-purple-100"><i class="fa-solid fa-map-pin"></i> 新濠天地導航</a>
+            </div>
+          </div>
 
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.task-checkbox');
-            const total = checkboxes.length;
-            let checked = 0;
-            checkboxes.forEach(cb => {
-                if (cb.checked) checked++;
-            });
-            const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
-            document.getElementById('progress-bar').style.width = percent + '%';
-            document.getElementById('progress-text').innerText = percent + '%';
-        }
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-indigo-600">晚上</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">返港休息</h3>
+              <p class="text-xs text-slate-500 mt-1">從氹仔客運碼頭搭乘船班返回香港灣仔/上環休息。</p>
+            </div>
+          </div>
+        </div>
 
-        function calculateBudget() {
-            const inputs = document.querySelectorAll('.cost-input');
-            let sum = 0;
-            inputs.forEach(input => {
-                sum += Number(input.value) || 0;
-            });
-            document.getElementById('total-spent').innerText = 'NT$ ' + sum.toLocaleString();
+        <!-- Accordions -->
+        <div class="mt-8 space-y-3">
+          <details class="group bg-orange-50/80 rounded-xl border border-orange-200/60 p-4 transition">
+            <summary class="font-bold text-orange-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-utensils text-orange-500 mr-2"></i> 澳門必吃美食推薦</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-orange-600"></i>
+            </summary>
+            <div class="text-xs text-orange-800 mt-3 border-t border-orange-200/50 pt-2 flex flex-wrap gap-2">
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🫖 蓮香樓早茶</span>
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🥧 葡式蛋塔 (安德魯/瑪嘉烈)</span>
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🥩 澳門豬扒包</span>
+            </div>
+          </details>
 
-            const limit = Number(document.getElementById('budget-limit').value) || 0;
-            const statusEl = document.getElementById('budget-status');
-            if (sum <= limit) {
-                statusEl.innerText = '✓ 狀態：目前花費符合預算範圍內';
-                statusEl.className = 'text-xs font-bold text-emerald-600 mt-1';
-            } else {
-                statusEl.innerText = '⚠️ 狀態：已超出設定預算目標！';
-                statusEl.className = 'text-xs font-bold text-rose-600 mt-1';
-            }
-        }
+          <details class="group bg-amber-50/80 rounded-xl border border-amber-200/60 p-4 transition">
+            <summary class="font-bold text-amber-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-passport text-amber-500 mr-2"></i> Day 2 貼心小提醒</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-amber-600"></i>
+            </summary>
+            <div class="text-xs text-amber-800 mt-3 leading-relaxed border-t border-amber-200/50 pt-2">
+              跨國/特區移動，請務必隨身攜帶並確認有效港澳證件、護照與入境簽註證明喔！
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
 
-        // 初始化計算
-        calculateBudget();
-    </script>
+    <!-- DAY 3 -->
+    <div id="day-3-content" class="tab-content space-y-6 hidden">
+      <div class="glass-card rounded-2xl p-5 md:p-6">
+        <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <span>DAY 3 🇭🇰 港島文青漫遊與廟街夜市</span>
+        </h2>
+        <p class="text-sm text-slate-500 mb-6">10/24 (六) 漫步經典中環，享受港式夜市燈火</p>
+
+        <!-- Timeline -->
+        <div class="space-y-6">
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-walkie-talkie"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-emerald-600">白天散策</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">中環文青漫步</h3>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=Central+Market+Hong+Kong" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100"><i class="fa-solid fa-building"></i> 中環街市</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Central–Mid-Levels+escalator" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100"><i class="fa-solid fa-arrows-up-down"></i> 半山手扶梯</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Graham+Street+Mural+Central" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100"><i class="fa-solid fa-palette"></i> 嘉咸街壁畫</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Tai+Kwun+Central" target="_blank" class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-lg font-medium hover:bg-emerald-100"><i class="fa-solid fa-landmark"></i> 歷史建築大館</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-wine-glass font-bold"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-rose-600">下午茶時光</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">蘭芳園</h3>
+              <p class="text-xs text-slate-500 mt-1">必點招牌香濃絲襪奶茶與法蘭西多士。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Lan+Fong+Yuen+Central" target="_blank" class="inline-block mt-2 text-xs bg-rose-50 text-rose-600 border border-rose-200 px-2.5 py-1 rounded-lg font-medium hover:bg-rose-100"><i class="fa-solid fa-map-pin"></i> 蘭芳園總店導航</a>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-indigo-600">燈火夜晚</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">油麻地廟街夜市</h3>
+              <p class="text-xs text-slate-500 mt-1">搭乘地鐵至油麻地站，體驗懷舊街頭熱炒與煲仔飯文化。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Temple+Street+Night+Market" target="_blank" class="inline-block mt-2 text-xs bg-indigo-50 text-indigo-600 border border-indigo-200 px-2.5 py-1 rounded-lg font-medium hover:bg-indigo-100"><i class="fa-solid fa-map-pin"></i> 廟街夜市導航</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordions -->
+        <div class="mt-8 space-y-3">
+          <details class="group bg-orange-50/80 rounded-xl border border-orange-200/60 p-4 transition">
+            <summary class="font-bold text-orange-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-utensils text-orange-500 mr-2"></i> 今日美食清單</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-orange-600"></i>
+            </summary>
+            <div class="text-xs text-orange-800 mt-3 border-t border-orange-200/50 pt-2 flex flex-wrap gap-2">
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🥤 蘭芳園絲襪奶茶 & 西多士</span>
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🍲 廟街興記/四季煲仔飯</span>
+              <span class="bg-white/80 px-2.5 py-1 rounded border border-orange-200">🦀 避風塘炒蟹</span>
+            </div>
+          </details>
+
+          <details class="group bg-amber-50/80 rounded-xl border border-amber-200/60 p-4 transition">
+            <summary class="font-bold text-amber-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i> Day 3 貼心小提醒</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-amber-600"></i>
+            </summary>
+            <div class="text-xs text-amber-800 mt-3 leading-relaxed border-t border-amber-200/50 pt-2">
+              中環坡道與階梯較多，建議穿著舒適好走的高彈性運動鞋，好好放鬆漫步享受港島文青氣息！
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div id="day-4-content" class="tab-content space-y-6 hidden">
+      <div class="glass-card rounded-2xl p-5 md:p-6">
+        <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <span>DAY 4 🇭🇰 黃大仙求籤、親友聚會與尖沙咀星光大道</span>
+        </h2>
+        <p class="text-sm text-slate-500 mb-6">10/25 (日) 靈驗祈福、親情聚會與維港燈光秀</p>
+
+        <!-- Timeline -->
+        <div class="space-y-6">
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-torii-gate"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-red-600">上午祈福</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">嗇色園黃大仙祠</h3>
+              <p class="text-xs text-slate-500 mt-1">搭乘地鐵至黃大仙站，參拜求籤祈求順遂。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Wong+Tai+Sin+Temple" target="_blank" class="inline-block mt-2 text-xs bg-red-50 text-red-600 border border-red-200 px-2.5 py-1 rounded-lg font-medium hover:bg-red-100"><i class="fa-solid fa-map-pin"></i> 黃大仙祠導航</a>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-pink-600">12:30 中午聚會</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">與表姐溫馨碰面</h3>
+              <p class="text-xs text-slate-500 mt-1">前往大圍站，與表姐相聚共享下午茶與溫馨時光。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Tai+Wai+Station" target="_blank" class="inline-block mt-2 text-xs bg-pink-50 text-pink-600 border border-pink-200 px-2.5 py-1 rounded-lg font-medium hover:bg-pink-100"><i class="fa-solid fa-map-pin"></i> 大圍站導航</a>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-indigo-600">璀璨夜晚</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">尖沙咀星光大道</h3>
+              <p class="text-xs text-slate-500 mt-1">欣賞正面維多利亞港夜景，可搭配 <strong>20:00 幻彩詠香江</strong> 大型燈光音樂匯演。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Hong+Kong" target="_blank" class="inline-block mt-2 text-xs bg-indigo-50 text-indigo-600 border border-indigo-200 px-2.5 py-1 rounded-lg font-medium hover:bg-indigo-100"><i class="fa-solid fa-map-pin"></i> 星光大道導航</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Notice -->
+        <div class="mt-8 space-y-3">
+          <details class="group bg-amber-50/80 rounded-xl border border-amber-200/60 p-4 transition">
+            <summary class="font-bold text-amber-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-shield-halved text-amber-500 mr-2"></i> Day 4 貼心小提醒</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-amber-600"></i>
+            </summary>
+            <div class="text-xs text-amber-800 mt-3 leading-relaxed border-t border-amber-200/50 pt-2">
+              黃大仙祠與假日星光大道人潮眾多、香火鼎盛，請隨身妥善保管好手機與皮夾等貴重財物！
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div id="day-5-content" class="tab-content space-y-6 hidden">
+      <div class="glass-card rounded-2xl p-5 md:p-6">
+        <h2 class="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <span>DAY 5 ✈️ 快樂返台</span>
+        </h2>
+        <p class="text-sm text-slate-500 mb-6">10/26 (一) 滿載美好回憶，平安返回台灣</p>
+
+        <!-- Timeline -->
+        <div class="space-y-6">
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-slate-600">上午時光</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">退房與前往機場</h3>
+              <p class="text-xs text-slate-500 mt-1">灣景國際飯店辦理退房，整裝前往香港國際機場。</p>
+            </div>
+          </div>
+
+          <div class="timeline-item relative flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 z-10 font-bold">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <div class="flex-1 bg-white/60 rounded-xl p-4 border border-slate-100">
+              <span class="text-xs font-bold text-emerald-600">11:15 - 13:00</span>
+              <h3 class="font-bold text-slate-800 text-base mt-0.5">星宇航空 JX234</h3>
+              <p class="text-xs text-slate-500 mt-1">甜蜜返回台灣，結束精彩的 5 天港澳小旅行。</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport" target="_blank" class="inline-block mt-2 text-xs bg-emerald-50 text-emerald-600 border border-emerald-200 px-2.5 py-1 rounded-lg font-medium hover:bg-emerald-100"><i class="fa-solid fa-plane"></i> 香港國際機場導航</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Notice -->
+        <div class="mt-8 space-y-3">
+          <details class="group bg-amber-50/80 rounded-xl border border-amber-200/60 p-4 transition">
+            <summary class="font-bold text-amber-900 cursor-pointer flex justify-between items-center text-sm">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-2"></i> Day 5 貼心小提醒</span>
+              <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-amber-600"></i>
+            </summary>
+            <div class="text-xs text-amber-800 mt-3 leading-relaxed border-t border-amber-200/50 pt-2">
+              機場安檢與預辦登機人潮較多，請務必於起飛前 <strong>2.5 小時</strong>（約 08:45 前）抵達機場辦理手續喔！
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Interactive Script -->
+  <script>
+    function switchTab(dayNumber) {
+      // Hide all contents
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.add('hidden'));
+
+      // Deactivate all buttons
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show specific content & activate button
+      const targetContent = document.getElementById(`day-${dayNumber}-content`);
+      const targetTab = document.getElementById(`tab-${dayNumber}`);
+
+      if (targetContent && targetTab) {
+        targetContent.classList.remove('hidden');
+        targetTab.classList.add('active');
+      }
+    }
+  </script>
+
 </body>
 </html>
